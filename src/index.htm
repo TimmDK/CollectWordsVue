@@ -10,17 +10,14 @@
 <body>
   <h1>Collect words</h1>  
   <div id="app">
-    <input type="number" placeholder="Number 1" v-model.number="number1">
-    <select v-model="operator">
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="*">*</option>
-      <option value="/">/</option>
-    </select>
-    <input type="number" placeholder="Number 2" v-model.number="number2">
-    <button v-on:click="calculate">=</button>
-    <span>{{result}}</span>
+    <input type="text" placeholder="Write word" v-model="inputText">
+    <button v-on:click="saveWords">Save</button>
+    <button v-on:click="showWords">Show</button>
+    <button v-on:click="clearWords">Clear</button>
+    <span>{{ response }}</span>
+    <div v-if="show">{{ words }}</div>
   </div>
+  
     
   <script src="bundle.js"></script>
 </body>

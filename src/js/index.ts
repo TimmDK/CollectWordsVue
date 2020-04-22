@@ -1,28 +1,37 @@
+
+
 var app = new Vue({
     el: '#app',
 
     data: {
-        number1: 0,
-        number2: 0,
-        operator: null,
-        result: 0
+        inputText : "",
+        response : "",
+        show : false,
+        words : []
+
+        
     },
 
     methods: {
         
-        calculate: function()
+        saveWords: function():void
         {
-            if(this.operator == "+")
-            this.result = ((this.number1) + (this.number2))
-
-            else if(this.operator == "-")
-            this.result = ((this.number1) - (this.number2))
-
-            else if(this.operator == "*")
-            this.result = ((this.number1) * (this.number2))
-
-            else if(this.operator == "/")
-            this.result = ((this.number1) / (this.number2))
+            this.words.push(this.inputText)
+            this.response = "Added '" + this.inputText + "' to list"
+        },
+        showWords: function():void
+        {
+            this.show = !this.show
+            
+        },
+        clearWords: function():void
+        {
+            if(confirm("Are you sure you want to clear the list?"))
+            {
+                this.words = []
+                this.show = false
+                this.response ="Cleared word list"
+            }
         }
     }
 })
